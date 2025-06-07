@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Fuente base y reset */
+body {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #1c1f24, #4a5c70, #0f1115);
+}
+
+/* Enlaces */
+a {
+  @apply text-textSecondary hover:text-textMain transition-colors;
+  text-decoration: none;
+}
+
+/* Encabezados */
+h1, h2, h3, h4, h5, h6 {
+  @apply font-bold;
+}
+
+/* Párrafos */
+p {
+  @apply text-textSecondary;
+}
+
+/* Contenedor principal */
+.container {
+  @apply max-w-5xl mx-auto px-4;
+}
+
+/* Secciones con padding vertical */
+.section {
+  @apply py-12;
+}
+
+/* Ejemplo de botón */
+.btn-primary {
+  @apply bg-accent text-textMain py-2 px-4 rounded hover:bg-opacity-80 transition-colors;
+}
+
+/* Burbuja clara transparente al pasar el mouse en enlaces */
+a.nav-link {
+  position: relative;
+  overflow: hidden;
+}
+
+a.nav-link::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.1); /* Ajustá la opacidad y el color para que combine con tu paleta */
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.4s ease, height 0.4s ease;
+  pointer-events: none; /* Para no bloquear clics */
+}
+
+a.nav-link:hover::before {
+  width: 200%;
+  height: 200%;
+}
